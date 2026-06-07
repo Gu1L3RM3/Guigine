@@ -1,0 +1,85 @@
+# ------------------------------
+# Python cache / bytecode
+# ------------------------------
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Ferramentas Python
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.nox/
+.hypothesis/
+.pyre/
+.pytype/
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# ------------------------------
+# Ambientes virtuais
+# ------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# ------------------------------
+# IDE / editor
+# ------------------------------
+.vscode/
+.idea/
+*.code-workspace
+
+# ------------------------------
+# Sistema operacional
+# ------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ------------------------------
+# Build / distribuicao
+# ------------------------------
+build/
+dist/
+release/
+*.zip
+*.spec.bak
+obf_src/
+obf_test/
+.pyarmor/
+.pyarmor_home/
+dist_obf/
+Alexandria_obf.spec
+codex_*/
+tmp_*/
+tmp_*.png
+tmp_*.gif
+tmp_*.pdf
+tmp_*.txt
+
+# Artefatos comuns de empacotamento Python
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ------------------------------
+# Arquivos locais de execucao
+# ------------------------------
+code/save/
+logs/
+*.log
+pyarmor.bug.log
+
+# Artefatos locais de documentacao/inspecao
+docs/generated/
+
+# Configuracao local sensivel
+.env
+.env.*
