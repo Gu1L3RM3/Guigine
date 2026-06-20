@@ -1,0 +1,53 @@
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "guigine"
+version = "0.1.0"
+description = "A lightweight 2D runtime built on top of pygame-ce."
+authors = ["Guilherme Abreu Cavazzani"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/cavaz/Guigine"
+repository = "https://github.com/cavaz/Guigine"
+keywords = ["pygame", "game-engine", "2d", "ecs", "gui"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Games/Entertainment",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+packages = [
+  { include = "guigine" },
+]
+exclude = [
+  "bash/**",
+  "meu_projeto/**",
+  ".codex/**",
+  ".agents/**",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+numpy = "2.2.5"
+pygame-ce = "2.5.3"
+PyTMX = "3.32"
+pathfinding = "1.0.18"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+taskipy = "^1.14.1"
+
+[tool.poetry.scripts]
+guigine = "guigine.cli:main"
+
+[tool.taskipy.tasks]
+test = "python -m unittest discover -s tests -p \"test_*.py\""
+test-cli = "python -m unittest tests.test_cli"
+run-examples = "python -m examples.run_examples"
+

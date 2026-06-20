@@ -76,6 +76,7 @@ code/save/
 logs/
 *.log
 pyarmor.bug.log
+bash/
 
 # Artefatos locais de documentacao/inspecao
 docs/generated/
