@@ -121,6 +121,40 @@ if __name__ == "__main__":
 """
 
 
+def build_gitignore() -> str:
+    return """# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+"""
+
+
 def build_taskipy_block(package_name: str) -> str:
     return f"""
 [tool.taskipy.tasks]
@@ -152,6 +186,7 @@ def write_project_files(project_dir: Path, package_name: str, engine_source: Pat
         encoding="utf-8",
     )
     (package_dir / "main.py").write_text(build_main_module(), encoding="utf-8")
+    (project_dir / ".gitignore").write_text(build_gitignore(), encoding="utf-8")
 
 
 def update_generated_pyproject(pyproject_path: Path, package_name: str) -> None:

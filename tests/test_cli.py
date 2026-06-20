@@ -19,6 +19,13 @@ class CliHelpersTestCase(unittest.TestCase):
         self.assertIn("poetry run task test", content)
         self.assertIn("src/mygame/main.py", content)
 
+    def test_build_gitignore_covers_common_python_artifacts(self) -> None:
+        content = cli.build_gitignore()
+        self.assertIn("__pycache__/", content)
+        self.assertIn(".venv/", content)
+        self.assertIn(".pytest_cache/", content)
+        self.assertIn("dist/", content)
+
 
 class CreateProjectTestCase(unittest.TestCase):
     def test_create_project_bootstraps_expected_files(self) -> None:
@@ -66,12 +73,17 @@ class CreateProjectTestCase(unittest.TestCase):
             project_dir = workspace / "sample_game"
             self.assertTrue((project_dir / "assets").is_dir())
             self.assertTrue((project_dir / "guigine").is_dir())
+            self.assertTrue((project_dir / ".gitignore").is_file())
             self.assertTrue((project_dir / "src" / "sample_game" / "__init__.py").is_file())
             self.assertTrue((project_dir / "src" / "sample_game" / "main.py").is_file())
 
             readme = (project_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("Project created with `Guigine` + `Poetry`.", readme)
             self.assertIn("|- assets/", readme)
+
+            gitignore = (project_dir / ".gitignore").read_text(encoding="utf-8")
+            self.assertIn("__pycache__/", gitignore)
+            self.assertIn(".venv/", gitignore)
 
             pyproject = (project_dir / "pyproject.toml").read_text(encoding="utf-8")
             self.assertIn('requires-python = ">=3.12,<4.0"', pyproject)
