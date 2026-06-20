@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "guigine"
-version = "0.1.0"
+version = "0.1.1"
 description = "A lightweight 2D runtime built on top of pygame-ce."
 authors = ["Guilherme Abreu Cavazzani"]
 license = "MIT"
